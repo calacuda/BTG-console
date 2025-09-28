@@ -7,7 +7,8 @@ pub enum CompressionStyle {
     ImageAsset(ImageAssetComp),
     AudioAsset(AudioAssetComp),
     TextAsset(TextAssetComp),
-    GenericBinData(GenericBinDataCompo),
+    ColorPallet(ColorPalletteComp),
+    GenericBinData(GenericBinDataComp),
 }
 
 #[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
@@ -20,7 +21,10 @@ pub enum AudioAssetComp {}
 pub enum TextAssetComp {}
 
 #[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub enum GenericBinDataCompo {}
+pub enum GenericBinDataComp {}
+
+#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
+pub struct ColorPalletteComp {}
 
 #[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
 pub enum AssetType {
@@ -79,6 +83,21 @@ pub enum InstructFrontEnd {
         /// number of tiles wide
         width: u32,
         /// number of tiles tall
+        height: u32,
+    },
+    DisableKeyboardInput {
+        id: Option<u32>,
+    },
+    DisableMouseInput {
+        id: Option<u32>,
+    },
+    DisableControllerInput {
+        id: Option<u32>,
+    },
+    SetResolution {
+        /// number of PX wide
+        width: u32,
+        /// number of PX tall
         height: u32,
     },
 }
