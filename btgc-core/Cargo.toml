@@ -1,0 +1,8 @@
+[package]
+name = "btgc-core"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = { version = "1.0.100", default-features = false }
+serde = { version = "1.0.228", default-features = false, features = ["derive", "alloc", "rc"] }
