@@ -1,8 +1,9 @@
 use crate::cart_to_term::{AssetType, CompressionStyle};
 use alloc::{string::String, vec::Vec};
+use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub enum ClientUpdate {
+#[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord, Deserialize, Serialize)]
+pub enum UpdateFromClient {
     ControllerConnected {
         id: u32,
     },
@@ -48,7 +49,7 @@ pub enum ClientUpdate {
 }
 
 // thanks bevy!
-#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
+#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord, Deserialize, Serialize)]
 pub enum NativeKeyCode {
     Unidentified,
     Android(u32),
@@ -58,7 +59,7 @@ pub enum NativeKeyCode {
 }
 
 // thanks bevy!
-#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
+#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord, Deserialize, Serialize)]
 pub enum KeyboardKey {
     Unidentified(NativeKeyCode),
     Backquote,
@@ -257,13 +258,13 @@ pub enum KeyboardKey {
     F35,
 }
 
-#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
+#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord, Deserialize, Serialize)]
 pub enum CompressionTarget {
     AllAssets,
     SpecificAsset(AssetType),
 }
 
-#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
+#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord, Deserialize, Serialize)]
 pub enum MouseEvent {
     RightClick,
     LeftClick,
@@ -271,13 +272,13 @@ pub enum MouseEvent {
     MoveTo { x: u32, y: u32 },
 }
 
-#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
+#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord, Deserialize, Serialize)]
 pub enum ButtonEvent {
     Pressed,
     Released,
 }
 
-#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
+#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord, Deserialize, Serialize)]
 pub enum ControllerButton {
     FaceNorth,
     FaceSouth,
@@ -287,7 +288,7 @@ pub enum ControllerButton {
     View(CardinalDir),
 }
 
-#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
+#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord, Deserialize, Serialize)]
 pub enum CardinalDir {
     Up,
     Down,

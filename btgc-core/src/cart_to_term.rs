@@ -1,43 +1,9 @@
 use alloc::vec::Vec;
+use serde::{Deserialize, Serialize};
 
 use crate::AssetId;
 
-#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub enum CompressionStyle {
-    ImageAsset(ImageAssetComp),
-    AudioAsset(AudioAssetComp),
-    TextAsset(TextAssetComp),
-    ColorPallet(ColorPalletteComp),
-    GenericBinData(GenericBinDataComp),
-}
-
-#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub enum ImageAssetComp {}
-
-#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub enum AudioAssetComp {}
-
-#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub enum TextAssetComp {}
-
-#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub enum GenericBinDataComp {}
-
-#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub struct ColorPalletteComp {}
-
-#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord)]
-pub enum AssetType {
-    Sf2,
-    Tile,
-    Midi,
-    Sprite,
-    Dialog,
-    ColorPallette,
-    Custom,
-}
-
-#[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord)]
+#[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord, Deserialize, Serialize)]
 pub enum InstructFrontEnd {
     SetTileSize {
         width: u32,
@@ -100,4 +66,39 @@ pub enum InstructFrontEnd {
         /// number of PX tall
         height: u32,
     },
+}
+
+#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord, Deserialize, Serialize)]
+pub enum CompressionStyle {
+    ImageAsset(ImageAssetComp),
+    AudioAsset(AudioAssetComp),
+    TextAsset(TextAssetComp),
+    ColorPallet(ColorPalletteComp),
+    GenericBinData(GenericBinDataComp),
+}
+
+#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord, Deserialize, Serialize)]
+pub enum ImageAssetComp {}
+
+#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord, Deserialize, Serialize)]
+pub enum AudioAssetComp {}
+
+#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord, Deserialize, Serialize)]
+pub enum TextAssetComp {}
+
+#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord, Deserialize, Serialize)]
+pub enum GenericBinDataComp {}
+
+#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord, Deserialize, Serialize)]
+pub struct ColorPalletteComp {}
+
+#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq, PartialOrd, Ord, Deserialize, Serialize)]
+pub enum AssetType {
+    Sf2,
+    Tile,
+    Midi,
+    Sprite,
+    Dialog,
+    ColorPallette,
+    Custom,
 }
