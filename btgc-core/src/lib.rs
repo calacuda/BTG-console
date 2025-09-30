@@ -35,8 +35,7 @@ pub trait SerialSendable: Sized {
 )]
 pub enum Message<T>
 where
-    T: alloc::fmt::Debug + Clone + core::hash::Hash + Eq + PartialEq + PartialOrd + Ord, // + Serialize, // + for<'b> Deserialize<'b>,
-                                                                                         // + Deserialize,
+    T: alloc::fmt::Debug + Clone + core::hash::Hash + Eq + PartialEq + PartialOrd + Ord,
 {
     Ack {
         /// the message being acknowledged as being successfully sent.
