@@ -1,7 +1,7 @@
 use alloc::vec::Vec;
 use serde::{Deserialize, Serialize};
 
-use crate::AssetId;
+use crate::{AssetId, Color};
 
 #[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord, Deserialize, Serialize)]
 pub enum InstructFrontEnd {
@@ -16,7 +16,7 @@ pub enum InstructFrontEnd {
     LoadAsset {
         uid: AssetId,
         asset_type: AssetType,
-        data: Vec<u8>,
+        data: Asset,
     },
     DisplayTile {
         location: (u32, u32, u32),
@@ -101,4 +101,15 @@ pub enum AssetType {
     Dialog,
     ColorPallette,
     Custom,
+}
+
+#[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord, Deserialize, Serialize)]
+pub enum Asset {
+    Sf2,
+    Tile(Vec<u8>),
+    Midi,
+    Sprite,
+    Dialog,
+    ColorPallette(Vec<Color>),
+    Custom(Vec<u8>),
 }

@@ -18,6 +18,7 @@ pub mod term_to_cart;
 pub type Result<T> = anyhow::Result<T>;
 pub type MessageId = u32;
 pub type AssetId = u32;
+pub type Color = (u8, u8, u8);
 
 pub trait SerialSendable: Sized {
     /// converts this type to bytes to be sendable over serial.
