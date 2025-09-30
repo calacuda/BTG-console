@@ -6,11 +6,15 @@ use crate::{AssetId, Color};
 #[derive(Debug, Clone, Hash, Eq, PartialEq, PartialOrd, Ord, Deserialize, Serialize)]
 pub enum InstructFrontEnd {
     SetTileSize {
+        /// width of one tile in PX
         width: u32,
+        /// height of one tile in PX
         height: u32,
     },
     SetSpriteSize {
+        /// width of one sprite in PX
         width: u32,
+        /// height of one sprite in PX
         height: u32,
     },
     LoadAsset {

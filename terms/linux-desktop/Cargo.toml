@@ -9,6 +9,7 @@ edition = "2021"
 [dependencies]
 btgc-term-lib = { version = "0.1.0", path = "../../btgc-term-lib" }
 dioxus = { version = "0.7.0-alpha.3", features = [] }
+serialport = { version = "4.7.3", features = ["serde"] }
 
 [features]
 default = ["desktop"]

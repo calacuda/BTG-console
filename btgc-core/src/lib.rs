@@ -49,6 +49,8 @@ where
         mesg: MessageId,
     },
     New {
+        /// the id of the message, used to identify this message specifically
+        id: MessageId,
         /// the message being transmitted
         mesg: T,
         /// check sum of the above message AFTER being SerialSend.to_serial
