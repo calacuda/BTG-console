@@ -72,7 +72,7 @@ impl TerminalAPI {
 
     // pub fn register_sent(&mut self, , message: Message<InstructFrontEnd>) ->
 
-    pub fn prosses_msg(
+    pub fn process_msg(
         &mut self,
         message: Message<InstructFrontEnd>,
     ) -> Result<ProcessedMessageRes> {
